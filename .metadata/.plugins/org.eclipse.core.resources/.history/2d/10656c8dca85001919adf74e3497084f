@@ -1,0 +1,15 @@
+package com.biz.myclass;
+
+public class Myclass_02 {
+
+	//MMyclass_02의 멤버 변수
+	public int num1=0;
+	public int num2=0;
+	
+	//메서드
+	public void add() {
+		System.out.println(num1+num2);
+		
+	}
+	
+}
