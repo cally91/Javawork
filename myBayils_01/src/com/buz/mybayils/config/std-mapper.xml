@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+ com.buz.mybatis.dao.StudentDao.StudentDao 인터페이스를 mapper의 
+namespace라는 값으로 설정하겠다
+ -->
+<mapper namespace="com.buz.mybatis.dao.StudentDao">
+	<select id="selectAll" resultType="StdVO">
+		SELECt * FROM tbl_student
+	</select>
+	<select id="fineByNum"
+	 resultType="StdVO"
+	  parameterType="String">
+	SELECt * FROM tbl_student WHERE st_num=#{st_num}
+	</select>
+	
+	<insert id="insert" parameterType="StdVO">
+	INSERT INTO tbl_student (ST_NUM,
+	ST_NAME,
+	ST_TEL,
+	ST_GRADE)
+
+	VALUES( #{st_num},
+	#{st_name},
+	#{st_tel},
+	#{st_grade})
+	</insert>
+	<update id="update" parameterType="StdVO">
+	UPDATE tbl_student
+	SET ST_NUM=#{st_num}
+	ST_NAME=#{st_name}
+	ST_TEL=#{st_tel}
+	ST_GRADE=#{st_grade}
+	where ST_NUM=#{st_num}
+	</update>
+	<delete id="delete" parameterType="String">
+	DELETE FROM tbl_student
+	WHERE st_num= #{st_num}
+	</delete>
+	
+
+</mapper>
